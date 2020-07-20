@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestCompComponent implements OnInit {
 
+  name:string = "My Name";
+  etat:string = "My State"
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  getStatut(){
+
+  return this.etat;
+
+  }
 }

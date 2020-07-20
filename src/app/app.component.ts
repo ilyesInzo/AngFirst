@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ang-test';
+  isAuth: Boolean = false;
+
+  constructor() {
+
+    setTimeout(() => {
+      this.isAuth = true;
+    }, 4000);
+
+  }
+
+  allumer() {
+    console.log("hello hello");
+  }
 }

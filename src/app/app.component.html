@@ -1,9 +1,17 @@
-<div> 
+<div class="container">
 
-<ul class="list">
+  <div class="row">
 
+    <div class="col-xs-12">
 
-</ul>
+      <ul class="list-group">
+        <app-test-comp></app-test-comp>
+      </ul>
+      <button type="button" class="btn btn-success" [disabled]="!isAuth" (click) = "allumer()" >
+        Press Me Hard
+      </button>
+    </div>
+
+  </div>
 
 </div>
-<app-test-comp></app-test-comp>
