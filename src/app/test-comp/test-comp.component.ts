@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-test-comp',
@@ -7,17 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestCompComponent implements OnInit {
 
-  name:string = "My Name";
-  etat:string = "My State"
+  @Input() name: string;
+  @Input() etat: number;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  getStatut(){
+  getStatut() {
 
-  return this.etat;
+    return this.etat;
+
+  }
+
+  getColor() {
+
+    if (this.etat === 2) {
+
+      return 'red';
+    }
+    else return 'green'
 
   }
 }

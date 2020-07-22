@@ -1,5 +1,7 @@
-<p>welcome</p>
-<li *ngFor="let i of ['3','4']" class="list-group-item">
-    <h4>{{name}} with state {{getStatut()}}</h4>
-    <input  >
+<li [ngClass]="{'list-group-item':true, 
+'list-group-item-success': etat !==2, 
+'list-group-item-danger': etat === 2}">
+    <div style="width: 20px;height: 20px;background-color: red;" *ngIf="etat === 2"></div>
+    <h4 [ngStyle]="{color: getColor()}">{{name}} with state {{getStatut()}}</h4>
+    <input type="text" class="form-control" [(ngModel)]="name">
 </li>
