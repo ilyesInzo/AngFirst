@@ -1,0 +1,7 @@
+
+<button type="button" *ngIf="!isAuth" class="btn btn-success" (click)="onSignIn()">
+    Sign In
+</button>
+<button type="button" *ngIf="isAuth" class="btn btn-danger" (click)="onSignOut()">
+    Sign Off
+</button>

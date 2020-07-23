@@ -1,7 +1,15 @@
 <li [ngClass]="{'list-group-item':true, 
-'list-group-item-success': etat !==2, 
-'list-group-item-danger': etat === 2}">
-    <div style="width: 20px;height: 20px;background-color: red;" *ngIf="etat === 2"></div>
+'list-group-item-success': etat === 1, 
+'list-group-item-danger': etat === 0}">
+    <div style="width: 20px;height: 20px;background-color: red;" *ngIf="etat === 0"></div>
     <h4 [ngStyle]="{color: getColor()}">{{name}} with state {{getStatut()}}</h4>
+    <a [routerLink]="[id]" >Detail</a>
     <input type="text" class="form-control" [(ngModel)]="name">
+    <button type="button" *ngIf="etat === 0" class="btn btn-success" (click)="onSwitch()">
+        Turn On
+    </button>
+    <button type="button" *ngIf="etat === 1" class="btn btn-danger" (click)="onSwitch()">
+        Turn Off
+    </button>
+
 </li>
