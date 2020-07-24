@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Post } from '../pojo/post';
-import { MyService } from './services/myservice.service'
+import { MyService } from './services/myservice.service';
+import { Subscription, interval} from 'rxjs';
 
 
 @Component({
@@ -8,10 +9,13 @@ import { MyService } from './services/myservice.service'
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit,OnDestroy {
   myName1: String = "Ilyes";
   myName2: String = "Ali";
   myName3: String = "Sami";
+
+  nbSeconde:number;
+  counterSubscription:Subscription;
 
   allPosts = [
     new Post("First Post", "Gibt nie etwas auf an dem du jeden Tag denken musste", 10),
@@ -23,6 +27,12 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const value = interval(1000);
+   this.counterSubscription = value.subscribe(x => this.nbSeconde = x , error => console.log(error), ()=> console.log("fini"));
+  }
+
+  ngOnDestroy(): void {
+    this.counterSubscription.unsubscribe();
   }
 
 }

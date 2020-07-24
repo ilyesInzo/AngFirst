@@ -1,13 +1,19 @@
-import { identifierModuleUrl } from '@angular/compiler';
+import { Subject } from 'rxjs';
 
 export class MyService {
 
-    elements = [
+    elementsSubject = new Subject<any[]>();
+
+    private elements = [
         { id: 1, name: "Ilyes", etat: 1 },
         { id: 2, name: "Ali", etat: 1 },
         { id: 3, name: "Sami", etat: 0 }
     ]
 
+    notifyElementChanges() {
+        this.elementsSubject.next(this.elements.slice());
+    }
+    // we will notify the change every time
     onTurnOnAll() {
 
         for (let elent of this.elements) {
@@ -15,6 +21,7 @@ export class MyService {
             elent.etat = 1;
 
         }
+        this.notifyElementChanges();
     }
 
     onTurnOffAll() {
@@ -23,15 +30,17 @@ export class MyService {
             elent.etat = 0;
 
         }
+        this.notifyElementChanges();
     }
 
     switchOneOn(index: number) {
         this.elements[index].etat = 1;
+        this.notifyElementChanges();
     }
 
     switchOneOff(index: number) {
         this.elements[index].etat = 0;
-
+        this.notifyElementChanges();
     }
 
     getElementByid(id: number) {
