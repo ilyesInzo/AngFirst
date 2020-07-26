@@ -1,13 +1,16 @@
+<div class="col-xs-12">
+  {{lastUpdate | async | date : 'yMMMMEEEEd' | uppercase}}
 
-      {{lastUpdate | async | date : 'yMMMMEEEEd' | uppercase}}
-      <ul  class="list-group">
-        <app-test-comp *ngFor="let element of elements; let i = index" [name] = "element.name" [etat]="element.etat" [index]="i" [id]="element.id"></app-test-comp>
-      </ul>
+  <ul class="list-group">
+    <app-test-comp *ngFor="let element of elements; let i = index" [name]="element.name" [etat]="element.etat"
+      [index]="i" [id]="element.id"></app-test-comp>
+  </ul>
 
-      <button type="button" [disabled]="!isAuth" class="btn btn-success" (click)="onAllumer()">
-        Turn On
-      </button>
+  <button type="button" [disabled]="!isAuth" class="btn btn-success" (click)="onAllumer()">
+    Turn On
+  </button>
 
-      <button type="button" [disabled]="!isAuth" class="btn btn-danger" (click)="onEteindre()">
-        Turn Off
-      </button>
+  <button type="button" [disabled]="!isAuth" class="btn btn-danger" (click)="onEteindre()">
+    Turn Off
+  </button>
+</div>

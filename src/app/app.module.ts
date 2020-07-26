@@ -11,11 +11,14 @@ import { PostListComponentComponent } from './post-list-component/post-list-comp
 import { MyService } from './services/myservice.service';
 import { Authentification } from './services/auth.service';
 import { AuthGuard } from './services/auth-guard.service';
+import { UserService } from './services/user.service';
 
 import { AuthComponent } from './auth/auth.component';
 import { MyViewComponent } from './my-view/my-view.component';
 import { SingleViewComponent } from './single-view/single-view.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { EditViewComponent } from './edit-view/edit-view.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +29,16 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
     AuthComponent,
     MyViewComponent,
     SingleViewComponent,
-    FourOhFourComponent
+    FourOhFourComponent,
+    EditViewComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule
   ],
-  providers: [AuthGuard, MyService, Authentification],
+  providers: [AuthGuard, MyService, Authentification, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

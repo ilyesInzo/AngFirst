@@ -8,11 +8,23 @@ export class MyService {
         { id: 1, name: "Ilyes", etat: 1 },
         { id: 2, name: "Ali", etat: 1 },
         { id: 3, name: "Sami", etat: 0 }
-    ]
+    ];
 
     notifyElementChanges() {
         this.elementsSubject.next(this.elements.slice());
     }
+
+    addElement(name: string, etat: number) {
+
+        this.elements.push({
+            id: this.elements[this.elements.length - 1].id++,
+            name: name,
+            etat: etat
+        });
+        this.notifyElementChanges();
+
+    }
+
     // we will notify the change every time
     onTurnOnAll() {
 

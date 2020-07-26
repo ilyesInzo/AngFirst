@@ -4,6 +4,8 @@
       <ul class="nav navbar-nav">
         <li routerLinkActive="active"><a routerLink="auth">Authentification</a></li>
         <li routerLinkActive="active"><a routerLink="myList">Appareils</a></li>
+        <li routerLinkActive="active"><a routerLink="edit">Edit</a></li>
+        <li routerLinkActive="active"> <a routerLink="userList"> Users</a></li>
       </ul>
       <div class="navbar-right">
         {{nbSeconde}} se sont écoulées
@@ -16,11 +18,7 @@
 
   <div class="row">
 
-    <div class="col-xs-12">
-
       <router-outlet></router-outlet>
-
-    </div>
 
     <!--app-post-component [posts] = "allPosts"></app-post-component-->
 
