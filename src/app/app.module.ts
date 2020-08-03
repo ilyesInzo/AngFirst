@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,7 @@ import { SingleViewComponent } from './single-view/single-view.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { EditViewComponent } from './edit-view/edit-view.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { UserAddComponent } from './user-add/user-add.component';
 
 @NgModule({
   declarations: [
@@ -31,12 +32,14 @@ import { UserListComponent } from './user-list/user-list.component';
     SingleViewComponent,
     FourOhFourComponent,
     EditViewComponent,
-    UserListComponent
+    UserListComponent,
+    UserAddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthGuard, MyService, Authentification, UserService],
   bootstrap: [AppComponent]
