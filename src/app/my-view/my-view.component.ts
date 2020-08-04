@@ -31,7 +31,8 @@ export class MyViewComponent implements OnInit, OnDestroy {
       this.elements = elements;
     });
     // rise notification so we can get the elements at the start
-    this.myService.notifyElementChanges();
+    // this.myService.notifyElementChanges();
+    this.onGetElements();
   }
 
   onAllumer() {
@@ -45,6 +46,14 @@ export class MyViewComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.elementSubscription.unsubscribe();
+  }
+
+  onSave() {
+    this.myService.saveElements();
+  }
+
+  onGetElements() {
+    this.myService.getElements();
   }
 
 }

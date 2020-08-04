@@ -6,11 +6,19 @@
       [index]="i" [id]="element.id"></app-test-comp>
   </ul>
 
-  <button type="button" [disabled]="!isAuth" class="btn btn-success" (click)="onAllumer()">
-    Turn On
-  </button>
+  <div>
+    <button type="button" [disabled]="!isAuth" class="btn btn-success" (click)="onAllumer()">
+      Turn On
+    </button>
 
-  <button type="button" [disabled]="!isAuth" class="btn btn-danger" (click)="onEteindre()">
-    Turn Off
-  </button>
+    <button type="button" [disabled]="!isAuth" class="btn btn-danger" (click)="onEteindre()">
+      Turn Off
+    </button>
+    <button type="button" [disabled]="!isAuth" class="btn btn-success pull-right" (click)="onGetElements()">
+      Refresh
+    </button>
+    <button type="button" [disabled]="!isAuth" class="btn btn-success pull-right" (click)="onSave()">
+      Save
+    </button>
+  </div>
 </div>
